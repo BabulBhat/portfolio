@@ -22,5 +22,313 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Global */
+.btn_One {
+  background: #ff0707;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn_One:hover {
+}
+
+.btn_Two {
+  background: #000;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Header */
+
+.textRed {
+  color: #ff0707;
+}
+
+/* hero */
+.hero{
+  padding: 80px 0;
+}
+
+/* About */
+.about {
+  padding: 80px 0;
+}
+
+.about .rotateText {
+  animation: rotateText 6s linear infinite;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.aboutME {
+  max-width: 500px;
+  margin-left: auto;
+}
+
+.heading {
+  font-size: 50px;
+  line-height: 75px;
+  position: relative;
+}
+
+.heading::before {
+  content: "";
+  background-image: url("../../public/HeadingLine.svg");
+  background-size: contain;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  background-repeat: no-repeat;
+  max-width: 430px;
+  min-height: 34px;
+  z-index: -1;
+}
+
+/* Skill */
+.skill {
+  padding: 80px 0;
+}
+.skill .skillfeature .skill_Lang {
+  position: relative;
+  z-index: 2;
+  background-color: red;
+  width: 100%;
+  max-width: 140px;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 29px;
+  text-transform: uppercase;
+}
+
+.skill .skillfeature .skill_LangShadow {
+  position: absolute;
+  z-index: -1;
+  left: -6px;
+  top: 0;
+  background-color: rgb(238, 124, 124);
+  width: 100%;
+  max-width: 140px;
+  min-height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.skill .skillfeature .result {
+  width: calc(100% - 20px);
+  text-align: right;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translate(0, -74%);
+}
+
+.skill .skillfeature .fullmarks {
+  position: relative;
+  width: 100%;
+}
+.skill .skillfeature .result .fullmarksLine {
+  width: 100%;
+  height: 10px;
+  background-color: #000;
+  border-radius: 0 10px 0 0;
+}
+
+.skill .skillfeature .result .marksLine {
+  width: 90%;
+  height: 10px;
+  background-color: #ffdb21;
+  position: relative;
+  border-radius: 0 0 10px 0;
+}
+
+.skill .skillfeature .result .marks {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+}
+
+.skill .skillfeature_reverse .result {
+  text-align: left;
+  right: 20px;
+  left: unset;
+}
+
+.skill .skillfeature_reverse .result .fullmarksLine {
+  border-radius: 10px 0 0 0;
+  width: 100%;
+  margin-left: auto;
+}
+
+.skill .skillfeature_reverse .result .marksLine {
+  border-radius: 0 0 0 10px;
+  width: 90%;
+  margin-left: auto;
+}
+
+/* portfolio */
+.portfolio {
+  padding: 80px 0;
+}
+
+.portfolio .portfolio_Btn li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 24px;
+}
+
+.portfolio .portfolio_Btn li.active .portfolio_heading_border {
+  background-color: #ff0707;
+}
+
+.portfolio .portfolio_Btn .portfolio_heading_border {
+  background-color: #fff;
+  width: 100%;
+  height: 6px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.portfolio .portfolio_Btn .portfolio_heading_border::before {
+  content: "";
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: #fff;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -12px;
+  left: -3px;
+}
+
+.portfolio .portfolio_Btn li.active .portfolio_heading_border::before {
+  background-color: #ff0707;
+}
+
+/* testimonials */
+.testimonials {
+  padding: 80px 0;
+}
+
+.testimonials .rotateText {
+  animation: rotateText 6s linear infinite;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.testimonials .custom-prev {
+  background-color: red;
+  border-radius: 100%;
+  top: 40px !important;
+  right: 85px !important;
+  left: unset !important;
+  color: #fff;
+  filter: drop-shadow(1px 3px 2px black);
+  width: 40px;
+  font-size: 20px;
+  height: 40px;
+}
+
+.testimonials .custom-next {
+  background-color: red;
+  border-radius: 100%;
+  top: 30px !important;
+  right: 10px !important;
+  left: unset !important;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(1px 3px 2px black);
+  font-size: 34px;
+}
+
+
+/* Contact */
+.contact{
+  padding: 80px 0 0 0;
+}
+.contact .contactCard{
+  background-color: #3F3838;
+}
+
+.contact .contactForm{
+  background-image: url("../../public/contactBG.png");
+  background-size: cover;
+  margin: 80px 0 0 0;
+  position: relative;
+}
+
+.contact .contactForm::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000056;
+  z-index: 0;
+}
+
+.contact .contactFormINfo{
+  background-color: #FFDB21;
+
+}
+
+.contact .contactFormMain input:focus, textarea:focus{
+    outline: 0;
+}
+
+.contact .contactFormMain input:placeholder, textarea:placeholder{
+    color: #fff;
+}
+
+.contact .contactFormMain textarea:placeholder{
+    color: #fff;
+}
+
+.contact .contactFormMain input, textarea{
+    padding: 10px 0;
+    margin: 10px 0;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    color: #fff;
+}
+
+
+/* Footer */
+.footer{
+  padding: 80px 0 0 0;
 }
