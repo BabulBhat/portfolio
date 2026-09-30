@@ -47,7 +47,7 @@ export default function Testimonials() {
   return (
     <section className="testimonials">
       <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-20">
+        <div className="grid grid-cols lg:grid-cols-3 gap-20">
           <div>
             <h3 className="heading relative text-left z-1 mb-4">
               Testimonia<span className="textRed font-semibold">ls</span>
@@ -73,8 +73,8 @@ export default function Testimonials() {
               Connect Now
             </button>
           </div>
-          <div className="relative col-span-2 max-w-[680px] w-full ml-auto ">
-            <div className="relative col-span-2 max-w-[680px] w-full ml-auto overflow-hidden p-3 pt-25">
+          <div className="relative  w-full ml-auto ">
+            <div className="relative ml-auto overflow-hidden p-3 pt-25">
               <Swiper
                 className="!overflow-visible"
                 modules={[Navigation, Autoplay]}
@@ -84,21 +84,24 @@ export default function Testimonials() {
                   prevEl: ".custom-prev",
                   nextEl: ".custom-next",
                 }}  
-                autoplay={{ delay: 7000 }}
+                // autoplay={{ delay: 7000 }}
                 loop={true}
                 breakpoints={{
                   640: {
                     slidesPerView: 2,
                   },
+                  768: {
+                    slidesPerView: 3
+                  },
                   1024: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                   },
                 }}
               >
                 {clientdata.map((item, index) => {
                   return (
                     <SwiperSlide className="!py-6">
-                      <div className="card bg-white drop-shadow-[0px_4px_17px_#514e4e36] p-4">
+                      <div className="card w-[250px] bg-white drop-shadow-[0px_4px_17px_#514e4e36] p-4">
                         <FontAwesomeIcon
                           icon={faQuoteLeft}
                           className="w-10 text-end textRed text-3xl"

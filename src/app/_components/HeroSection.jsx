@@ -10,8 +10,8 @@ export default function HeroSection() {
   return (
     <section className="hero">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-10 items-center">
-          <div className="w-full max-w-[350px]">
+        <div className="grid grid-cols lg:grid-cols-2 gap-10 items-center">
+          <div className="w-full lg:max-w-[350px]">
             <h1 className="text-7xl font-bold w-full max-w-[300px] leading-[0.3]">
               Hi! <span className="text-xl font-normal">Dear, I am</span>
               <span className="text-4xl">
@@ -48,15 +48,23 @@ export default function HeroSection() {
             </div>
           </div>
           <div className="relative">
-            <Image src={HeroImage} alt="Hero" className="w-full h-auto"/>
-            <div className="absolute top-[15%] right-0">
-              <Image src={HeroShapeOne} alt="Hero Shape" />
+            <Image src={HeroImage} alt="Hero" className="w-full h-auto" />
+            <div className=" absolute top-[15%] right-0 ">
+              <Image
+                src={HeroShapeOne}
+                alt="Hero Shape"
+                className="w-full h-auto"
+              />
             </div>
             <div className="absolute top-[15%] left-0 z-[-1]">
-              <Image src={HeroShapeTwo} alt="Hero Shape" />
+              <Image
+                src={HeroShapeTwo}
+                alt="Hero Shape"
+                className="w-full h-auto"
+              />
             </div>
-            <div className="absolute w-[500px] top-[30%] left-0">
-              <div className="transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)]">
+            <div className="absolute w-full xl:w-[500px] top-[30%] left-0">
+              <div className="transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)] md:transform-[perspective(700px)_rotateY(60deg)_skewX(10deg)] lg:md:transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)]">
                 <div className="bg-white w-[90px] text-center drop-shadow-[1px_3px_5px_#00000054] rounded-md py-1">
                   <span className="block text-sm textRed font-bold leading-[1.2]">
                     200+
@@ -67,8 +75,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-            <div className="absolute w-[500px] top-[60%] left-0">
-              <div className="transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)]">
+            <div className="absolute  w-full xl:w-[500px] top-[60%] left-0">
+              <div className="transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)] md:transform-[perspective(700px)_rotateY(60deg)_skewX(10deg)] lg:md:transform-[perspective(500px)_rotateY(60deg)_skewX(10deg)]">
                 <div className="bg-white w-[90px] text-center drop-shadow-[1px_3px_5px_#00000054] rounded-md py-1">
                   <span className="block text-sm textRed font-bold leading-[1.2]">
                     15+
@@ -79,7 +87,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-            <div className="absolute bottom-0 left-0">
+            <div className="absolute bottom-0 left-0 w-[50px] h-[50px] md:w-[100px] md:h-[100px] lg:w-auto lg:h-auto">
               <Image src={HeroShapeThree} alt="Hero Shape" />
             </div>
           </div>

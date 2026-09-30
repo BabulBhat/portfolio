@@ -14,29 +14,29 @@ import Contact from "./_components/Contact";
 export default function Home() {
   return (
     <Layout>
-      {/* <HeroSection /> */}
+      <HeroSection />
       {/* <div className="glowOne absolute top-0 z-[-1]">
         <Image src={RoundLine} alt="Round Shape" className="w-full h-auto" />
       </div> */}
 
-      {/* <About /> */}
+      <About />
 
       {/* <div className="glowTwo absolute top-[25%] right-0 z-[-1]">
         <Image src={ShapeAbout} alt="Round Shape" className="w-auto h-auto" />
       </div> */}
 
-      {/* <Skill /> */}
+      <Skill />
       {/* <div className="glowOne absolute top-[95%] right-0 z-[-1]">
         <Image src={Skillglow} alt="Round Shape" className="w-auto h-auto" />
       </div> */}
 
-      {/* <Portfolio /> */}
+      <Portfolio />
       {/* <div className="lineSkill absolute top-[100%] right-0 z-[-1]">
         <Image src={skillShape} alt="Round Shape" className="w-auto h-auto" />
       </div> */}
 
-      {/* <Testimonials />
-      <Contact /> */}
+      {/* <Testimonials /> */}
+      {/* <Contact /> */}
     </Layout>
   );
 }

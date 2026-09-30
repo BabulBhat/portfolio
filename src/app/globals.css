@@ -26,6 +26,9 @@ body {
 }
 
 /* Global */
+.container {
+  padding: 0 15px;
+}
 .btn_One {
   background: #ff0707;
   border-radius: 10px;
@@ -84,6 +87,12 @@ body {
   margin-left: auto;
 }
 
+@media (max-width: 1024px) {
+  .aboutME {
+    max-width: 100%;
+  }
+}
+
 .heading {
   font-size: 50px;
   line-height: 75px;
@@ -102,6 +111,12 @@ body {
   max-width: 430px;
   min-height: 34px;
   z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .heading::before {
+    display: none;
+  }
 }
 
 /* Skill */
@@ -209,6 +224,10 @@ body {
   background-color: #ff0707;
 }
 
+.portfolio .portfolio_Btn li.active span {
+  color: #ff0707;
+}
+
 .portfolio .portfolio_Btn .portfolio_heading_border {
   background-color: #fff;
   width: 100%;
@@ -232,6 +251,25 @@ body {
 
 .portfolio .portfolio_Btn li.active .portfolio_heading_border::before {
   background-color: #ff0707;
+}
+
+.portfolio .loadmore {
+  position: relative;
+  cursor: pointer;
+}
+
+.portfolio .loadmore::before {
+  content: "";
+  background-color: #48434382;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio .loadmore:hover::before {
+  content: unset;
 }
 
 /* testimonials */

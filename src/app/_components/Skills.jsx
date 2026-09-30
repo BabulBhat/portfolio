@@ -18,7 +18,7 @@ export default function Skill() {
             build beautiful and powerful websites and android applications.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-10 mt-6">
+        <div className="grid grid-cols lg:grid-cols-2 gap-10 mt-6">
 
           <div>
             <div className="skillfeature flex items-center justify-start relative mb-10">

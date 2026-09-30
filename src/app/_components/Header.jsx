@@ -31,7 +31,7 @@ export default function Header() {
             className={`${openMenu ? "flex opacity-100 visible" : "opacity-0 invisible lg:visible lg:opacity-100"} transition-all duration-500 ease-in-out absolute top-0 left-0 bg-[#fbfafa] h-full flex flex-col items-center justify-between w-full lg:transition-none lg:static lg:bg-transparent lg:flex lg:justify-center lg:flex-row `}
           > */}
           <div
-            className={`${openMenu ? "opacity-100 visible bg-gray-200" : "opacity-0 invisible"} transition-all duration-500 ease-in-out absolute left-0 top-full w-full max-w-full flex-col items-start flex lg:items-center lg:justify-between xl:max-w-[calc(100%-30%)] lg:opacity-100 lg:visible lg:static lg:flex-row lg:bg-transparent`}
+            className={`${openMenu ? "opacity-100 visible bg-gray-200" : "opacity-0 invisible"} pb-3 transition-all duration-500 ease-in-out absolute left-0 top-full w-full max-w-full flex-col items-start flex lg:items-center lg:justify-between xl:max-w-[calc(100%-30%)] lg:opacity-100 lg:visible lg:static lg:flex-row lg:bg-transparent`}
           >
             <ul className={`flex flex-col w-full lg:flex-row`}>
               <li className="">
@@ -100,7 +100,7 @@ export default function Header() {
           >
             <FontAwesomeIcon
               icon={faBars}
-              className={`absolute left-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
+              className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
                 openMenu
                   ? "rotate-90 scale-0 opacity-0"
                   : "rotate-0 scale-100 opacity-100"
@@ -109,7 +109,7 @@ export default function Header() {
 
             <FontAwesomeIcon
               icon={faXmark}
-              className={`absolute left-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
+              className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
                 openMenu
                   ? "rotate-0 scale-100 opacity-100"
                   : "-rotate-90 scale-0 opacity-0"

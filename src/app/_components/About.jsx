@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section className="about">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols lg:grid-cols-2 gap-10">
           <div className="relative ">
             <div>
               <Image src={Aboutme} alt="About Me" className="w-full h-auto" />
