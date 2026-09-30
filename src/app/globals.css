@@ -48,13 +48,16 @@ body {
 }
 
 /* Header */
+.header {
+  min-height: 87px;
+}
 
 .textRed {
   color: #ff0707;
 }
 
 /* hero */
-.hero{
+.hero {
   padding: 80px 0;
 }
 
@@ -275,24 +278,23 @@ body {
   font-size: 34px;
 }
 
-
 /* Contact */
-.contact{
+.contact {
   padding: 80px 0 0 0;
 }
-.contact .contactCard{
-  background-color: #3F3838;
+.contact .contactCard {
+  background-color: #3f3838;
 }
 
-.contact .contactForm{
+.contact .contactForm {
   background-image: url("../../public/contactBG.png");
   background-size: cover;
   margin: 80px 0 0 0;
   position: relative;
 }
 
-.contact .contactForm::before{
-  content: '';
+.contact .contactForm::before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -302,33 +304,34 @@ body {
   z-index: 0;
 }
 
-.contact .contactFormINfo{
-  background-color: #FFDB21;
-
+.contact .contactFormINfo {
+  background-color: #ffdb21;
 }
 
-.contact .contactFormMain input:focus, textarea:focus{
-    outline: 0;
+.contact .contactFormMain input:focus,
+textarea:focus {
+  outline: 0;
 }
 
-.contact .contactFormMain input:placeholder, textarea:placeholder{
-    color: #fff;
+.contact .contactFormMain input:placeholder,
+textarea:placeholder {
+  color: #fff;
 }
 
-.contact .contactFormMain textarea:placeholder{
-    color: #fff;
+.contact .contactFormMain textarea:placeholder {
+  color: #fff;
 }
 
-.contact .contactFormMain input, textarea{
-    padding: 10px 0;
-    margin: 10px 0;
-    border-bottom: 1px solid #fff;
-    width: 100%;
-    color: #fff;
+.contact .contactFormMain input,
+textarea {
+  padding: 10px 0;
+  margin: 10px 0;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  color: #fff;
 }
-
 
 /* Footer */
-.footer{
+.footer {
   padding: 80px 0 0 0;
 }
