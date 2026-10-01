@@ -53,7 +53,7 @@ export default function Contact() {
               </div>
             </div>
             <div className="grid grid-cols-4 items-end gap-10 mt-8">
-              <div className="col-span-4 contactFormINfo rounded-md p-6">
+              <div className="col-span-4 lg:col-span-1 contactFormINfo rounded-md p-6">
                 <h4 className="text-black font-bold text-2xl pb-4">
                   Send Me An Email
                 </h4>

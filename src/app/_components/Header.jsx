@@ -5,27 +5,46 @@ import LogoDark from "../../../public/Logo_Dark.png";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DarkMode from "./DarkMode";
 
 export default function Header() {
   const [openMenu, setopenMenu] = useState(false);
+  const [dark, setdark] = useState(false);
+  useEffect(() => {
+    const currentTheme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+
+    setdark(currentTheme);
+  }, []);
+  const toggleMode = () => {
+    const newTheme = dark === "dark" ? "light" : "dark";
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(newTheme);
+    localStorage.setItem("theme", newTheme);
+    setdark(newTheme);
+  };
   return (
     <header className="header relative">
       <div className="container mx-auto">
         <div className={`flex items-center justify-between min-h-[87px] `}>
           <div className="relative lg:w-[30%]">
-            <Image
-              src={Logo}
-              alt="Logo"
-              className="w-auto max-w-full h-auto"
-              priority
-            />
-            {/* <Image
-              src={LogoDark}
-              alt="Logo"
-              className="w-auto max-w-full h-auto"
-              priority
-            /> */}
+            {dark === "dark" ? (
+              <Image
+                src={LogoDark}
+                alt="Logo"
+                className="w-auto max-w-full h-auto"
+                priority
+              />
+            ) : (
+              <Image
+                src={Logo}
+                alt="Logo"
+                className="w-auto max-w-full h-auto"
+                priority
+              />
+            )}
           </div>
           {/* <ul
             className={`${openMenu ? "flex opacity-100 visible" : "opacity-0 invisible lg:visible lg:opacity-100"} transition-all duration-500 ease-in-out absolute top-0 left-0 bg-[#fbfafa] h-full flex flex-col items-center justify-between w-full lg:transition-none lg:static lg:bg-transparent lg:flex lg:justify-center lg:flex-row `}
@@ -85,14 +104,9 @@ export default function Header() {
             </div>
           </div>
 
-          {/* <div
-            className={`${openMenu ? "absolute right-0 top-0 w-10 bg-white rounded-full h-10 p-3 m-3 flex items-center justify-center drop-shadow-[1px_2px_1px_#11111145] cursor-pointer lg:hidden " : "hidden absolute right-0 top-0 w-10 bg-white rounded-full h-10 p-3 m-3 flex items-center justify-center drop-shadow-[1px_2px_1px_#11111145] cursor-pointer lg:hidden"}`}
-            onClick={() => {
-              setopenMenu(!openMenu);
-            }}
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </div> */}
+            <div className="flex items-center justify-start">
+          {/* Dark Mode */}
+          <DarkMode dark={dark} toggleMode={toggleMode} />
 
           <div
             className="relative block h-[30px] w-[30px] cursor-pointer lg:hidden"
@@ -115,6 +129,7 @@ export default function Header() {
                   : "-rotate-90 scale-0 opacity-0"
               }`}
             />
+          </div>
           </div>
         </div>
       </div>
