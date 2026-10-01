@@ -151,12 +151,12 @@ export default function Testimonials() {
               </button>
             </div>
 
-            {/* <div className="absolute bottom-[-100px] left-0 lg:left-[-100px] z-10">
+            <div className="absolute bottom-[-100px] left-0 lg:left-[-100px] z-10">
               <Image src={thankU} alt="Shape About" className="rotateText " />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
                 <Image src={thankUMark} alt="Shape Mark" />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
