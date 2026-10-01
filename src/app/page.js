@@ -35,8 +35,8 @@ export default function Home() {
         <Image src={skillShape} alt="Round Shape" className="w-auto h-auto" />
       </div> */}
 
-      {/* <Testimonials /> */}
-      {/* <Contact /> */}
+      <Testimonials />
+      <Contact />
     </Layout>
   );
 }

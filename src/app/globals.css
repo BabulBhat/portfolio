@@ -327,7 +327,7 @@ body {
 .contact .contactForm {
   background-image: url("../../public/contactBG.png");
   background-size: cover;
-  margin: 80px 0 0 0;
+  margin: 120px 0 0 0;
   position: relative;
 }
 

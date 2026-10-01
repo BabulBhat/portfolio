@@ -47,8 +47,8 @@ export default function Testimonials() {
   return (
     <section className="testimonials">
       <div className="container mx-auto">
-        <div className="grid grid-cols lg:grid-cols-3 gap-20">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
+          <div className="col-span-1">
             <h3 className="heading relative text-left z-1 mb-4">
               Testimonia<span className="textRed font-semibold">ls</span>
               <div className="absolute top-0 right-[30%] translate-[-5%_-30%] z-[-2]">
@@ -73,7 +73,7 @@ export default function Testimonials() {
               Connect Now
             </button>
           </div>
-          <div className="relative  w-full ml-auto ">
+          <div className="col-span-2 relative w-full ml-auto ">
             <div className="relative ml-auto overflow-hidden p-3 pt-25">
               <Swiper
                 className="!overflow-visible"
@@ -91,17 +91,17 @@ export default function Testimonials() {
                     slidesPerView: 2,
                   },
                   768: {
-                    slidesPerView: 3
+                    slidesPerView: 2
                   },
                   1024: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                   },
                 }}
               >
                 {clientdata.map((item, index) => {
                   return (
                     <SwiperSlide className="!py-6">
-                      <div className="card w-[250px] bg-white drop-shadow-[0px_4px_17px_#514e4e36] p-4">
+                      <div className="card bg-white drop-shadow-[0px_4px_17px_#514e4e36] p-4">
                         <FontAwesomeIcon
                           icon={faQuoteLeft}
                           className="w-10 text-end textRed text-3xl"
@@ -151,8 +151,8 @@ export default function Testimonials() {
               </button>
             </div>
 
-            <div className="absolute bottom-[-100px] left-[-100px] z-10">
-              <Image src={thankU} alt="Shape About" className="rotateText" />
+            <div className="absolute bottom-[-100px] left-0 lg:left-[-100px] z-10">
+              <Image src={thankU} alt="Shape About" className="rotateText " />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
                 <Image src={thankUMark} alt="Shape Mark" />
               </div>

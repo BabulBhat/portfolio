@@ -2,15 +2,20 @@ import Image from "next/image";
 import Logo from "../../../public/Logo.png";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container mx-auto">
-        <div className="grid grid-cols-7 gap-10">
-          <div className="border-r-1 border-gray-400 col-span-3">
-            <div className=" max-w-[350px]">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-10 pb-8">
+          <div className="border-b-1 lg:border-b-0 lg:border-r-1 border-gray-400 col-span-3">
+            <div className=" lg:max-w-[350px]">
               <Image
                 src={Logo}
                 alt="Logo"
@@ -25,7 +30,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-span-4">
-            <div className="grid grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <div>
                 <h6 className="uppercase text-xl mb-5 font-semibold">
                   Quick Lin<span className="textRed">ks</span>
@@ -171,10 +176,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <hr className="text-gray-400"/>
-      <div className="container mx-auto py-3">
-        <div className="flex items-center justify-between">
-          <div>© {new Date().getFullYear()}. All rights reserved by RB Technolgies</div>
+      <hr className="text-gray-400" />
+      <div className="container mx-auto ">
+        <div className="block md:flex items-center justify-between py-3">
+          <div className="py-3 lg:py-0">
+            © {new Date().getFullYear()}. All rights reserved by RB Technolgies
+          </div>
           <div className="flex items-center justify-start">
             <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
               <FontAwesomeIcon icon={faFacebook} />
