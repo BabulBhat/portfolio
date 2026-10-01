@@ -15,12 +15,12 @@ export default function About() {
             <div>
               <Image src={Aboutme} alt="About Me" className="w-full h-auto" />
             </div>
-            <div className=" absolute top-0 right-0">
+            {/* <div className=" absolute top-0 right-0">
               <Image src={thankU} alt="Shape About" className="rotateText" />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
                 <Image src={thankUMark} alt="Shape Mark" />
               </div>
-            </div>
+            </div> */}
             <div>
               <Image src={Aboutline} alt="Shape About" />
             </div>
