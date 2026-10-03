@@ -12,10 +12,10 @@ export default function HeroSection() {
       <div className="container mx-auto">
         <div className="grid grid-cols lg:grid-cols-2 gap-10 items-center">
           <div className="w-full lg:max-w-[350px]">
-            <h1 className="text-7xl font-bold w-full max-w-[300px] leading-[0.3]">
-              Hi! <span className="text-xl font-normal">Dear, I am</span>
+            <h1 className="text-7xl font-bold w-full max-w-[291px] leading-[0.3]">
+              Hi! <span className="text-xl font-normal">Dear, I am </span>
               <span className="text-4xl">
-                Babul Kr. <span className="textRed">Bhat</span>
+                Babul Kumar <span className="textRed">Bhat</span>
               </span>
               <br /> <span className="textRed text-4xl">UI/UX</span>
               <span className="text-xl font-semibold uppercase"> Designer</span>
@@ -33,7 +33,7 @@ export default function HeroSection() {
                 <div className="flex items-center justify-start">
                   <FontAwesomeIcon
                     icon={faDownload}
-                    className="text-white w-5 mx-2"
+                    className="text-white w-5 mx-2 dark:text-black"
                   />
                   <span>Resume</span>
                 </div>
@@ -69,7 +69,7 @@ export default function HeroSection() {
                   <span className="block text-sm textRed font-bold leading-[1.2]">
                     200+
                   </span>
-                  <span className="block text-sm uppercase font-bold leading-[1.2] tracking-[-0.8px]">
+                  <span className="block text-sm uppercase font-bold leading-[1.2] tracking-[-0.8px] dark:text-black">
                     Project
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export default function HeroSection() {
                   <span className="block text-sm textRed font-bold leading-[1.2]">
                     15+
                   </span>
-                  <span className="block text-sm uppercase font-bold leading-[1.2] tracking-[-0.8px]">
+                  <span className="block text-sm uppercase font-bold leading-[1.2] tracking-[-0.8px] dark:text-black">
                     Experience
                   </span>
                 </div>

@@ -106,7 +106,7 @@ export default function Testimonials() {
                           icon={faQuoteLeft}
                           className="w-10 text-end textRed text-3xl"
                         />
-                        <p className="text-sm px-8">{item.paragraph}</p>
+                        <p className="text-sm px-8 dark:text-black">{item.paragraph}</p>
                         <div className="text-end">
                           <FontAwesomeIcon
                             icon={faQuoteRight}
@@ -124,10 +124,10 @@ export default function Testimonials() {
                               className="w-full h-auto"
                             />
                           </div>
-                          <h5 className="mt-4 font-bold text-md mb-1">
+                          <h5 className="mt-4 font-bold text-md mb-1 dark:text-black">
                             {item.name}
                           </h5>
-                          <p className="text-sm text-gray-500 uppercase">
+                          <p className="text-sm text-gray-500 uppercase dark:text-gray-800">
                             {item.designation}
                           </p>
                         </div>
@@ -152,9 +152,9 @@ export default function Testimonials() {
             </div>
 
             <div className="absolute bottom-[-100px] left-0 lg:left-[-100px] z-10">
-              <Image src={thankU} alt="Shape About" className="rotateText " />
+              <Image src={thankU} alt="Shape About" className="rotateText dark:invert" />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
-                <Image src={thankUMark} alt="Shape Mark" />
+                <Image src={thankUMark} alt="Shape Mark" className=" dark:invert"/>
               </div>
             </div>
           </div>

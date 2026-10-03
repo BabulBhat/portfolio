@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function DarkMode({dark,toggleMode}) {
   return (
     <div
-      className="flex items-center justify-center text-xl px-4"
+      className="flex items-center justify-center text-xl px-4 cursor-pointer"
       onClick={toggleMode}
     >
       {dark === "dark" ? (

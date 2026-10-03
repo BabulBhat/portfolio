@@ -12,10 +12,8 @@ export default function Header() {
   const [openMenu, setopenMenu] = useState(false);
   const [dark, setdark] = useState(false);
   useEffect(() => {
-    const currentTheme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-
+    const currentTheme = localStorage.getItem('theme') || "light";
+    document.body.classList.add(currentTheme);
     setdark(currentTheme);
   }, []);
   const toggleMode = () => {

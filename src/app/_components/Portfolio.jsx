@@ -79,7 +79,7 @@ export default function Portfolio() {
                   <h4 className="textRed font-semibold text-2xl uppercase mb-4">
                     {allitem.title}
                   </h4>
-                  <p className="text-md">
+                  <p className="text-md dark:text-black">
                     Amet minim mollit non deserunt Allamco est sit aliqua dolor
                     do amet sint. Velit officia consequat duis enim velit
                     mollit.{" "}

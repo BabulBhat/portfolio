@@ -16,13 +16,13 @@ export default function About() {
               <Image src={Aboutme} alt="About Me" className="w-full h-auto" />
             </div>
             <div className="hidden lg:block absolute top-0 right-0">
-              <Image src={thankU} alt="Shape About" className="rotateText" />
+              <Image src={thankU} alt="Shape About" className="rotateText dark:invert" />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
-                <Image src={thankUMark} alt="Shape Mark" />
+                <Image src={thankUMark} alt="Shape Mark" className="dark:invert"/>
               </div>
             </div>
             <div>
-              <Image src={Aboutline} alt="Shape About" />
+              <Image src={Aboutline} alt="Shape About" className="dark:invert"/>
             </div>
           </div>
           <div className="aboutME">

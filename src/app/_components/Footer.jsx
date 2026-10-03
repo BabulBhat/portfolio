@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Logo from "../../../public/Logo.png";
+import LogoDark from "../../../public/Logo_Dark.png";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,19 +11,35 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 export default function Footer() {
+  useEffect(() => {
+    const currentTheme = localStorage.getItem("theme") || "light";
+    setmode(currentTheme);
+  }, []);
+  const [mode, setmode] = useState(localStorage.getItem("theme") || "light");
   return (
     <footer className="footer">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-10 pb-8">
           <div className="border-b-1 lg:border-b-0 lg:border-r-1 border-gray-400 col-span-3">
             <div className=" lg:max-w-[350px]">
-              <Image
-                src={Logo}
-                alt="Logo"
-                className="w-auto max-w-full h-auto"
-              />
-              <p className="text-sm mb-10 mt-5 text-gray-600">
+              {mode === "dark" ? (
+                <Image
+                  src={LogoDark}
+                  alt="Logo"
+                  className="w-auto max-w-full h-auto"
+                  priority
+                />
+              ) : (
+                <Image
+                  src={Logo}
+                  alt="Logo"
+                  className="w-auto max-w-full h-auto"
+                />
+              )}
+
+              <p className="text-sm mb-10 mt-5 text-gray-600 dark:text-white">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
                 explicabo ullam cupiditate quo sapiente repellat, similique
                 unde. Tenetur nostrum deserunt, explicabo alias illum in,
@@ -30,7 +48,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-span-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
               <div>
                 <h6 className="uppercase text-xl mb-5 font-semibold">
                   Quick Lin<span className="textRed">ks</span>
@@ -39,7 +57,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white "
                     >
                       About US
                     </Link>
@@ -47,7 +65,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Portfolio
                     </Link>
@@ -55,7 +73,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Services
                     </Link>
@@ -63,7 +81,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Blog
                     </Link>
@@ -71,7 +89,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Contact
                     </Link>
@@ -86,7 +104,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Authentication
                     </Link>
@@ -94,7 +112,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       System Status
                     </Link>
@@ -102,7 +120,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Terms of Service
                     </Link>
@@ -110,7 +128,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Pricing
                     </Link>
@@ -118,7 +136,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       FAQ
                     </Link>
@@ -133,7 +151,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Documentation
                     </Link>
@@ -141,7 +159,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       System Status
                     </Link>
@@ -149,7 +167,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       API Reference
                     </Link>
@@ -157,7 +175,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Support
                     </Link>
@@ -165,7 +183,7 @@ export default function Footer() {
                   <li>
                     <Link
                       href="#about"
-                      className="font-semibold uppercase py-1 block text-gray-700 text-sm"
+                      className="font-semibold uppercase py-1 block text-gray-700 text-sm dark:text-white"
                     >
                       Open Source
                     </Link>
@@ -183,19 +201,19 @@ export default function Footer() {
             © {new Date().getFullYear()}. All rights reserved by RB Technolgies
           </div>
           <div className="flex items-center justify-start">
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
               <FontAwesomeIcon icon={faFacebook} />
             </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
               <FontAwesomeIcon icon={faX} />
             </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
               <FontAwesomeIcon icon={faInstagram} />
             </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
               <FontAwesomeIcon icon={faYoutube} />
             </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
               <FontAwesomeIcon icon={faLinkedin} />
             </div>
           </div>

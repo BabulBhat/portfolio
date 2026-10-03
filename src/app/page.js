@@ -15,25 +15,25 @@ export default function Home() {
   return (
     <Layout>
       <HeroSection />
-      {/* <div className="glowOne absolute top-0 z-[-1]">
+      <div className="glowOne absolute top-0 z-[-1]">
         <Image src={RoundLine} alt="Round Shape" className="w-full h-auto" />
-      </div> */}
+      </div>
 
       <About />
 
-      {/* <div className="glowTwo absolute top-[25%] right-0 z-[-1]">
+      <div className="glowTwo absolute top-[800px] right-0 z-[-1]">
         <Image src={ShapeAbout} alt="Round Shape" className="w-auto h-auto" />
-      </div> */}
+      </div>
 
       <Skill />
-      {/* <div className="glowOne absolute top-[95%] right-0 z-[-1]">
+      <div className="glowOne absolute top-[1200px] right-0 z-[-1]">
         <Image src={Skillglow} alt="Round Shape" className="w-auto h-auto" />
-      </div> */}
+      </div>
 
       <Portfolio />
-      {/* <div className="lineSkill absolute top-[100%] right-0 z-[-1]">
+      <div className="lineSkill absolute top-[2700px] right-[100px] z-[-1]">
         <Image src={skillShape} alt="Round Shape" className="w-auto h-auto" />
-      </div> */}
+      </div>
 
       <Testimonials />
       <Contact />

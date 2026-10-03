@@ -26,7 +26,7 @@ export default function Contact() {
                 <div className="bg-white text-2xl w-10 h-10 flex items-center justify-center rounded-full textRed mb-6 lg:w-25 lg:h-25 lg:text-5xl">
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
-                <h5 className="text-white text-lg lg:text-3xl font-semibold mb-2">
+                <h5 className="text-white text-lg lg:text-2xl font-semibold mb-2">
                   Head Quarter
                 </h5>
                 <p className="text-white text-sm">
@@ -37,7 +37,7 @@ export default function Contact() {
                 <div className="bg-white text-2xl w-10 h-10 flex items-center justify-center rounded-full textRed mb-6 lg:w-25 lg:h-25 lg:text-5xl">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
-                <h5 className="text-white text-lg lg:text-3xl font-semibold mb-2">
+                <h5 className="text-white text-lg lg:text-2xl font-semibold mb-2">
                   Email
                 </h5>
                 <p className="text-white text-sm">info@mail.com</p>
@@ -46,7 +46,7 @@ export default function Contact() {
                 <div className="bg-white text-2xl w-10 h-10 flex items-center justify-center rounded-full textRed mb-6 lg:w-25 lg:h-25 lg:text-5xl">
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
-                <h5 className="text-white text-lg lg:text-3xl font-semibold mb-2">
+                <h5 className="text-white text-lg lg:text-2xl font-semibold mb-2">
                   24/7 Hours Available
                 </h5>
                 <p className="text-white text-sm">033-1010252-555</p>
@@ -57,7 +57,7 @@ export default function Contact() {
                 <h4 className="text-black font-bold text-2xl pb-4">
                   Send Me An Email
                 </h4>
-                <p className="text-sm mb-10">
+                <p className="text-sm mb-10 dark:text-gray-800">
                   Feel free to get in touch with me. I am always open to
                   discussing new projects or creative ideas.
                 </p>
@@ -65,13 +65,13 @@ export default function Contact() {
                   Follow Us
                 </span>
                 <div className="flex items-center justify-start">
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
                     <FontAwesomeIcon icon={faFacebook} />
                   </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
                     <FontAwesomeIcon icon={faX} />
                   </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2">
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
                     <FontAwesomeIcon icon={faInstagram} />
                   </div>
                 </div>
