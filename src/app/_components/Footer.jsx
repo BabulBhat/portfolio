@@ -17,7 +17,7 @@ export default function Footer() {
     const currentTheme = localStorage.getItem("theme") || "light";
     setmode(currentTheme);
   }, []);
-  const [mode, setmode] = useState(localStorage.getItem("theme") || "light");
+  const [mode, setmode] = useState("light");
   return (
     <footer className="footer">
       <div className="container mx-auto">
