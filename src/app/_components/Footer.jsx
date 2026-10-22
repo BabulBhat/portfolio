@@ -13,31 +13,27 @@ import {
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 export default function Footer() {
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme") || "light";
-    setmode(currentTheme);
-  }, []);
-  const [mode, setmode] = useState("light");
   return (
     <footer className="footer">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-10 pb-8">
           <div className="border-b-1 lg:border-b-0 lg:border-r-1 border-gray-400 col-span-3">
             <div className=" lg:max-w-[350px]">
-              {mode === "dark" ? (
                 <Image
                   src={LogoDark}
                   alt="Logo"
-                  className="w-auto max-w-full h-auto"
                   priority
+                  sizes="(max-width: 640px) 128px, 160px"
+                  className="hidden object-contain object-left dark:block"
                 />
-              ) : (
+
                 <Image
                   src={Logo}
                   alt="Logo"
-                  className="w-auto max-w-full h-auto"
+                  priority
+                  sizes="(max-width: 640px) 128px, 160px"
+                  className="object-contain object-left dark:hidden"
                 />
-              )}
 
               <p className="text-sm mb-10 mt-5 text-gray-600 dark:text-white">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
@@ -196,26 +192,41 @@ export default function Footer() {
       </div>
       <hr className="text-gray-400" />
       <div className="container mx-auto ">
-        <div className="block md:flex items-center justify-between py-3">
+        <div className="block text-center md:flex items-center justify-between py-3">
           <div className="py-3 lg:py-0">
             © {new Date().getFullYear()}. All rights reserved by RB Technolgies
           </div>
-          <div className="flex items-center justify-start">
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
+          <div className="flex items-center justify-center md:justify-start">
+            <Link
+              href=""
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+            >
               <FontAwesomeIcon icon={faFacebook} />
-            </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
+            </Link>
+            <Link
+              href=""
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+            >
               <FontAwesomeIcon icon={faX} />
-            </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
+            </Link>
+            <Link
+              href=""
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+            >
               <FontAwesomeIcon icon={faInstagram} />
-            </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
+            </Link>
+            <Link
+              href=""
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+            >
               <FontAwesomeIcon icon={faYoutube} />
-            </div>
-            <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
+            </Link>
+            <Link
+              href=""
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+            >
               <FontAwesomeIcon icon={faLinkedin} />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,10 +11,21 @@ import DarkMode from "./DarkMode";
 export default function Header() {
   const [openMenu, setopenMenu] = useState(false);
   const [dark, setdark] = useState(false);
+  const [headersticky, setHeadersticky] = useState(false);
   useEffect(() => {
-    const currentTheme = localStorage.getItem('theme') || "light";
+    const currentTheme = localStorage.getItem("theme") || "light";
     document.body.classList.add(currentTheme);
     setdark(currentTheme);
+
+    // When Scroll Header Sticky
+    const handleSticky = () => {
+      if (window.scrollY > 100) {
+        setHeadersticky(true);
+      } else {
+        setHeadersticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleSticky);
   }, []);
   const toggleMode = () => {
     const newTheme = dark === "dark" ? "light" : "dark";
@@ -24,37 +35,39 @@ export default function Header() {
     setdark(newTheme);
   };
   return (
-    <header className="header relative">
+    <header
+      className={`header z-100 transition-all duration-300 ${headersticky ? (dark === "dark" ? "bg-[#1E1A1A] sticky top-0 shadow-md" : "bg-white sticky top-0 shadow-md") : "relative bg-transparent"}`}
+    >
       <div className="container mx-auto">
         <div className={`flex items-center justify-between min-h-[87px] `}>
           <div className="relative lg:w-[30%]">
-            {dark === "dark" ? (
-              <Image
-                src={LogoDark}
-                alt="Logo"
-                className="w-auto max-w-full h-auto"
-                priority
-              />
-            ) : (
-              <Image
-                src={Logo}
-                alt="Logo"
-                className="w-auto max-w-full h-auto"
-                priority
-              />
-            )}
+            <Image
+              src={LogoDark}
+              alt="Logo"
+              priority
+              sizes="(max-width: 640px) 128px, 160px"
+              className="hidden object-contain object-left dark:block"
+            />
+
+            <Image
+              src={Logo}
+              alt="Logo"
+              priority
+              sizes="(max-width: 640px) 128px, 160px"
+              className="object-contain object-left dark:hidden"
+            />
           </div>
           {/* <ul
             className={`${openMenu ? "flex opacity-100 visible" : "opacity-0 invisible lg:visible lg:opacity-100"} transition-all duration-500 ease-in-out absolute top-0 left-0 bg-[#fbfafa] h-full flex flex-col items-center justify-between w-full lg:transition-none lg:static lg:bg-transparent lg:flex lg:justify-center lg:flex-row `}
           > */}
           <div
-            className={`${openMenu ? "opacity-100 visible bg-gray-200" : "opacity-0 invisible"} pb-3 transition-all duration-500 ease-in-out absolute left-0 top-full w-full max-w-full flex-col items-start flex lg:items-center lg:justify-between xl:max-w-[calc(100%-30%)] lg:opacity-100 lg:visible lg:static lg:flex-row lg:bg-transparent`}
+            className={`${openMenu ? "opacity-100 visible bg-gray-200" : "opacity-0 invisible"} min-h-[87px] pb-3 transition-all duration-500 ease-in-out absolute left-0 top-full w-full max-w-full flex-col items-start flex lg:pb-0 lg:items-center lg:justify-between xl:max-w-[calc(100%-30%)] lg:opacity-100 lg:visible lg:static lg:flex-row lg:bg-transparent`}
           >
-            <ul className={`flex flex-col w-full lg:flex-row`}>
+            <ul className={`flex flex-col w-full min-h-[87px] lg:flex-row`}>
               <li className="">
                 <Link
                   href=""
-                  className="py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
+                  className="min-h-[87px] py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
                 >
                   Ho<span className="textRed">me</span>
                 </Link>
@@ -62,7 +75,7 @@ export default function Header() {
               <li className="">
                 <Link
                   href=""
-                  className="py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
+                  className="min-h-[87px] py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
                 >
                   Abo<span className="textRed">ut</span>
                 </Link>
@@ -70,7 +83,7 @@ export default function Header() {
               <li className="">
                 <Link
                   href=""
-                  className="py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
+                  className="min-h-[87px] py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
                 >
                   Portfol<span className="textRed">io</span>
                 </Link>
@@ -78,7 +91,7 @@ export default function Header() {
               <li className="">
                 <Link
                   href=""
-                  className="py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
+                  className="min-h-[87px] py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
                 >
                   Testimonia<span className="textRed">ls</span>
                 </Link>
@@ -86,7 +99,7 @@ export default function Header() {
               <li className="">
                 <Link
                   href=""
-                  className="py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
+                  className="min-h-[87px] py-4 px-[30px] uppercase font-semibold text-xl block flex items-center justify-start lg:text-sm lg:justify-center"
                 >
                   Bl<span className="textRed">og</span>
                 </Link>
@@ -97,37 +110,37 @@ export default function Header() {
                 href=""
                 className="btn_One px-8 py-4 uppercase font-semibold text-md"
               >
-                Contact
+                <span>Contact</span>
               </Link>
             </div>
           </div>
 
-            <div className="flex items-center justify-start">
-          {/* Dark Mode */}
-          <DarkMode dark={dark} toggleMode={toggleMode} />
+          <div className="flex items-center justify-start">
+            {/* Dark Mode */}
+            <DarkMode dark={dark} toggleMode={toggleMode} />
 
-          <div
-            className="relative block h-[30px] w-[30px] cursor-pointer lg:hidden"
-            onClick={() => setopenMenu(!openMenu)}
-          >
-            <FontAwesomeIcon
-              icon={faBars}
-              className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
-                openMenu
-                  ? "rotate-90 scale-0 opacity-0"
-                  : "rotate-0 scale-100 opacity-100"
-              }`}
-            />
+            <div
+              className="relative block h-[30px] w-[30px] cursor-pointer lg:hidden"
+              onClick={() => setopenMenu(!openMenu)}
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
+                  openMenu
+                    ? "rotate-90 scale-0 opacity-0"
+                    : "rotate-0 scale-100 opacity-100"
+                }`}
+              />
 
-            <FontAwesomeIcon
-              icon={faXmark}
-              className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
-                openMenu
-                  ? "rotate-0 scale-100 opacity-100"
-                  : "-rotate-90 scale-0 opacity-0"
-              }`}
-            />
-          </div>
+              <FontAwesomeIcon
+                icon={faXmark}
+                className={`absolute right-0 top-0 text-[30px] transition-all duration-500 ease-in-out ${
+                  openMenu
+                    ? "rotate-0 scale-100 opacity-100"
+                    : "-rotate-90 scale-0 opacity-0"
+                }`}
+              />
+            </div>
           </div>
         </div>
       </div>

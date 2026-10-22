@@ -6,15 +6,13 @@
   --foreground: #171717;
 }
 
-
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Roboto", sans-serif;
 }
 
-body.dark{
+body.dark {
   background: #111;
   color: white;
   color-scheme: dark;
@@ -27,13 +25,40 @@ body.dark{
 .btn_One {
   background: #ff0707;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
   color: #ffffff;
   cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.btn_One::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  width: 0%;
+  height: 0%;
+  border-radius: 10px;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn_One:hover::before {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  border: 1px solid #ff0707;
 }
 
 .btn_One:hover {
+  transform: scale3d(1.2, 1.2, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn_One span {
+  position: relative;
 }
 
 .btn_Two {
@@ -43,16 +68,136 @@ body.dark{
   align-items: center;
   color: #ffffff;
   cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
 }
 
-body.dark .btn_Two{
+.btn_Two::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #ff0707;
+  width: 0%;
+  height: 0%;
+  border-radius: 10px;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn_Two:hover::before {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  border: 1px solid #000;
+}
+
+.btn_Two:hover {
+  transform: scale3d(1.2, 1.2, 1);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.btn_Two span {
+  position: relative;
+}
+
+body.dark .btn_Two {
   background-color: #fff;
   color: #000;
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: #0b0b0f;
+  color: #ff0707;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+.preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ff0707;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.preloader p {
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Header */
 .header {
   min-height: 87px;
+}
+
+.header ul li a {
+  position: relative;
+}
+
+.header ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #ff0707;
+  width: 0%;
+  height: 2px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+.header ul li a:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #ff0707;
+  width: 100%;
+  height: 2px;
+  transition: all 0.3s linear;
+  transform: scaleX(1);
+}
+
+.header ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #ff0707;
+  width: 0%;
+  height: 2px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+.header ul li a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #ff0707;
+  width: 100%;
+  height: 2px;
+  transition: all 0.3s linear;
+  transform: scaleX(1);
 }
 
 .textRed {
@@ -64,9 +209,21 @@ body.dark .btn_Two{
   padding: 80px 0;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 50px 0;
+  }
+}
+
 /* About */
 .about {
   padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 50px 0;
+  }
 }
 
 .about .rotateText {
@@ -123,18 +280,25 @@ body.dark .btn_Two{
 .skill {
   padding: 80px 0;
 }
+
+@media (max-width: 768px) {
+  .skill {
+    padding: 50px 0;
+  }
+}
+
 .skill .skillfeature .skill_Lang {
   position: relative;
   z-index: 2;
   background-color: red;
   width: 100%;
-  max-width: 140px;
-  min-height: 130px;
+  max-width: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  font-size: 16px;
+  clip-path: circle(50%);
+  font-size: 13px;
   color: #fff;
   font-weight: 600;
   line-height: 29px;
@@ -148,12 +312,12 @@ body.dark .btn_Two{
   top: 0;
   background-color: rgb(238, 124, 124);
   width: 100%;
-  max-width: 140px;
-  min-height: 130px;
+  max-width: 80px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: circle(50%);
 }
 
 .skill .skillfeature .result {
@@ -169,6 +333,7 @@ body.dark .btn_Two{
   position: relative;
   width: 100%;
 }
+
 .skill .skillfeature .result .fullmarksLine {
   width: 100%;
   height: 10px;
@@ -181,7 +346,6 @@ body.dark .skill .skillfeature .result .fullmarksLine {
 }
 
 .skill .skillfeature .result .marksLine {
-  width: 90%;
   height: 10px;
   background-color: #ffdb21;
   position: relative;
@@ -194,27 +358,15 @@ body.dark .skill .skillfeature .result .fullmarksLine {
   top: 100%;
 }
 
-.skill .skillfeature_reverse .result {
-  text-align: left;
-  right: 20px;
-  left: unset;
-}
-
-.skill .skillfeature_reverse .result .fullmarksLine {
-  border-radius: 10px 0 0 0;
-  width: 100%;
-  margin-left: auto;
-}
-
-.skill .skillfeature_reverse .result .marksLine {
-  border-radius: 0 0 0 10px;
-  width: 90%;
-  margin-left: auto;
-}
-
 /* portfolio */
 .portfolio {
   padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 50px 0;
+  }
 }
 
 .portfolio .portfolio_Btn li {
@@ -281,6 +433,12 @@ body.dark .skill .skillfeature .result .fullmarksLine {
   padding: 80px 0;
 }
 
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 50px 0;
+  }
+}
+
 .testimonials .rotateText {
   animation: rotateText 6s linear infinite;
 }
@@ -324,8 +482,15 @@ body.dark .skill .skillfeature .result .fullmarksLine {
 .contact {
   padding: 80px 0 0 0;
 }
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 50px 0 0 0;
+  }
+}
+
 .contact .contactCard {
-  background-color: #3f3838;
+  background-color: #1E1A1A;
 }
 
 .contact .contactForm {
@@ -376,4 +541,66 @@ textarea {
 /* Footer */
 .footer {
   padding: 80px 0 0 0;
+}
+
+.footer ul li a{
+  position: relative;  
+}
+
+.footer ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #ff0707;
+  width: 2px;
+  height: 0px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+  left: -10px;
+}
+
+.footer ul li a:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #ff0707;
+  width: 2px;
+  height: 100%;
+  transition: all 0.3s linear;
+  transform: scaleX(1);
+  
+}
+
+.footer ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #ff0707;
+  width: 2px;
+  height: 0px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+.footer ul li a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #ff0707;
+  width: 2px;
+  height: 100%;
+  transition: all 0.3s linear;
+  transform: scaleX(1);
+}
+
+body.dark .footer{
+  background: #1E1A1A;
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 0 0 0;
+  }
 }

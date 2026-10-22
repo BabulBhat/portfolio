@@ -7,15 +7,13 @@ import {
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 export default function Contact() {
   return (
     <section className="contact">
       <div className="container mx-auto">
         <h3 className="heading relative z-1 ">
           Contact <span className="textRed font-semibold">Us</span>
-          <div className="absolute top-0 right-[30%] translate-[-5%_-30%] z-[-2]">
-            <Image src={SkillShape} alt="Skills Shape" />
-          </div>
         </h3>
       </div>
       <div className="contactForm">
@@ -65,14 +63,14 @@ export default function Contact() {
                   Follow Us
                 </span>
                 <div className="flex items-center justify-start">
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
-                    <FontAwesomeIcon icon={faFacebook} />
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
+                    <Link href=""><FontAwesomeIcon icon={faFacebook} /></Link>
                   </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
-                    <FontAwesomeIcon icon={faX} />
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
+                    <Link href=""><FontAwesomeIcon icon={faX} /></Link>
                   </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 dark:text-black">
-                    <FontAwesomeIcon icon={faInstagram} />
+                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
+                    <Link href=""><FontAwesomeIcon icon={faInstagram} /></Link>
                   </div>
                 </div>
               </div>
@@ -112,7 +110,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-3">
                   <button className="btn_One px-5 py-4 uppercase font-semibold text-md">
-                    Send Message
+                    <span>Send Message</span>
                   </button>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import Preloader from "./_components/Preloader";
 import "./globals.css";
 import "@/lib/fontawesome";
 export const metadata = {
@@ -15,7 +16,11 @@ export default function RootLayout({ children }) {
         rel="stylesheet"
         precedence="default"
       />
-      <body className="min-h-full flex flex-col">{children}</body>
+
+      <body className="min-h-full flex flex-col">
+        <Preloader />
+        {children}
+      </body>
     </html>
   );
 }

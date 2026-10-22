@@ -1,17 +1,26 @@
 "use client";
 import Image from "next/image";
 import SkillShape from "../../../public/SkillShape.png";
+import testimonialsFirst from "../../../public/testimonials_first.png";
+import testimonialsSecond from "../../../public/testimonials_two.png";
 import clientImg from "../../../public/client.png";
 import thankU from "../../../public/Thnk_u.png";
 import thankUMark from "../../../public/Thnk_u_mark.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight, faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faQuoteLeft,
+  faQuoteRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useIsInView } from "../hooks/useIsInView";
 
 export default function Testimonials() {
   const clientdata = [
@@ -44,16 +53,20 @@ export default function Testimonials() {
       designation: "CEO & MANAGER",
     },
   ];
+  const { ref, isInView } = useIsInView();
   return (
-    <section className="testimonials">
+    <section className="testimonials relative">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
-          <div className="col-span-1">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 2 }}
+            className="col-span-1"
+          >
             <h3 className="heading relative text-left z-1 mb-4">
               Testimonia<span className="textRed font-semibold">ls</span>
-              <div className="absolute top-0 right-[30%] translate-[-5%_-30%] z-[-2]">
-                <Image src={SkillShape} alt="Skills Shape" />
-              </div>
             </h3>
             <h3 className="mb-4 font-semibold text-2xl">
               What Clients are Say
@@ -70,9 +83,9 @@ export default function Testimonials() {
             </p>
 
             <button className="btn_One px-5 py-4 uppercase font-semibold text-md">
-              Connect Now
+              <span>Connect Now</span>
             </button>
-          </div>
+          </motion.div>
           <div className="col-span-2 relative w-full ml-auto ">
             <div className="relative ml-auto overflow-hidden p-3 pt-25">
               <Swiper
@@ -83,7 +96,7 @@ export default function Testimonials() {
                 navigation={{
                   prevEl: ".custom-prev",
                   nextEl: ".custom-next",
-                }}  
+                }}
                 // autoplay={{ delay: 7000 }}
                 loop={true}
                 breakpoints={{
@@ -91,7 +104,7 @@ export default function Testimonials() {
                     slidesPerView: 2,
                   },
                   768: {
-                    slidesPerView: 2
+                    slidesPerView: 2,
                   },
                   1024: {
                     slidesPerView: 2,
@@ -106,7 +119,9 @@ export default function Testimonials() {
                           icon={faQuoteLeft}
                           className="w-10 text-end textRed text-3xl"
                         />
-                        <p className="text-sm px-8 dark:text-black">{item.paragraph}</p>
+                        <p className="text-sm px-8 dark:text-black">
+                          {item.paragraph}
+                        </p>
                         <div className="text-end">
                           <FontAwesomeIcon
                             icon={faQuoteRight}
@@ -140,26 +155,67 @@ export default function Testimonials() {
                 className="custom-prev absolute flex items-center justify-center cursor-pointer"
                 aria-label="Previous slide"
               >
-                <FontAwesomeIcon icon={faAngleLeft}/>
+                <FontAwesomeIcon icon={faAngleLeft} />
               </button>
 
               <button
                 className="custom-next absolute flex items-center justify-center cursor-pointer"
                 aria-label="Next slide"
               >
-                <FontAwesomeIcon icon={faAngleRight}/>
+                <FontAwesomeIcon icon={faAngleRight} />
               </button>
             </div>
 
             <div className="absolute bottom-[-100px] left-0 lg:left-[-100px] z-10">
-              <Image src={thankU} alt="Shape About" className="rotateText dark:invert" />
+              <Image
+                src={thankU}
+                alt="Shape About"
+                className="rotateText dark:invert"
+              />
               <div className="flex items-center justify-center absolute top-0 right-0 bottom-0 left-0">
-                <Image src={thankUMark} alt="Shape Mark" className=" dark:invert"/>
+                <Image
+                  src={thankUMark}
+                  alt="Shape Mark"
+                  className=" dark:invert"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <motion.div
+        initial={{ y: 0, x: 0 }}
+        animate={{ y: [0, -50, 0], x: [0, -50, 0] }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="testimonials_first absolute top-[0] right-0 z-[-1]"
+      >
+        <Image
+          src={testimonialsFirst}
+          alt="Round Shape"
+          className="w-auto h-auto"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ y: 0, x: 0 }}
+        animate={{ y: [0, -70, 0], x: [0, -70, 0] }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="testimonials_second absolute top-[-20px] right-0 z-[-1]"
+      >
+        <Image
+          src={testimonialsSecond}
+          alt="Round Shape"
+          className="w-auto h-auto"
+        />
+      </motion.div>
     </section>
   );
 }
