@@ -1,0 +1,1 @@
+export let connectToMongo = process.env.DBURL;

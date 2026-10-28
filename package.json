@@ -15,9 +15,11 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "framer-motion": "^14.3.0",
+    "mongoose": "^9.11.4",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "sonner": "^2.0.8",
     "swiper": "^14.2.0"
   },
   "devDependencies": {

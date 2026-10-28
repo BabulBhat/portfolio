@@ -199,31 +199,31 @@ export default function Footer() {
           <div className="flex items-center justify-center md:justify-start">
             <Link
               href=""
-              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
             >
               <FontAwesomeIcon icon={faFacebook} />
             </Link>
             <Link
               href=""
-              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
             >
               <FontAwesomeIcon icon={faX} />
             </Link>
             <Link
               href=""
-              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
             >
               <FontAwesomeIcon icon={faInstagram} />
             </Link>
             <Link
               href=""
-              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
             >
               <FontAwesomeIcon icon={faYoutube} />
             </Link>
             <Link
               href=""
-              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]"
+              className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
             >
               <FontAwesomeIcon icon={faLinkedin} />
             </Link>

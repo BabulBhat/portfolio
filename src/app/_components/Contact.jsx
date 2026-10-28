@@ -8,7 +8,52 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import { useState } from "react";
+import { toast } from "sonner";
 export default function Contact() {
+  const [alldata, setalldata] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setalldata({
+      ...alldata,
+      [name]: value,
+    });
+  };
+
+  const handleSave = async () => {
+    setLoading(true);
+    const { fname, lname, email, phone, message } = alldata;
+    if (fname === "" || email === "") {
+      toast.error("Please * mark must be filled...");
+    } else {
+      const response = await fetch(`http://localhost:3000/api/frontend`, {
+        method: "POST",
+        body: JSON.stringify(alldata),
+      });
+      const result = await response.json();
+      if (result.success) {
+        toast.success("Data Save Successfully");
+        setLoading(false);
+        setalldata({
+          fname: "",
+          lname: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        toast.error("Something went wrong");
+      }
+    }
+  };
+
   return (
     <section className="contact">
       <div className="container mx-auto">
@@ -63,15 +108,24 @@ export default function Contact() {
                   Follow Us
                 </span>
                 <div className="flex items-center justify-start">
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
-                    <Link href=""><FontAwesomeIcon icon={faFacebook} /></Link>
-                  </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
-                    <Link href=""><FontAwesomeIcon icon={faX} /></Link>
-                  </div>
-                  <div className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:text-black hover:drop-shadow-[0px_3px_2px_#111]">
-                    <Link href=""><FontAwesomeIcon icon={faInstagram} /></Link>
-                  </div>
+                  <Link
+                    href={""}
+                    className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
+                  >
+                    <FontAwesomeIcon icon={faFacebook} />
+                  </Link>
+                  <Link
+                    href={""}
+                    className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
+                  >
+                    <FontAwesomeIcon icon={faX} />
+                  </Link>
+                  <Link
+                    href={""}
+                    className="bg-white drop-shadow-[0px_1px_1px_#111] rounded-full w-10 h-10 flex items-center justify-center text-xl mr-2 transition-transform duration-300 dark:bg-black dark:text-white hover:drop-shadow-[0px_3px_2px_#111]"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </Link>
                 </div>
               </div>
               <div className="col-span-4 lg:col-span-3">
@@ -81,6 +135,8 @@ export default function Contact() {
                       type="text"
                       className="text-white"
                       placeholder="Enter First Name"
+                      name="fname"
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -88,6 +144,8 @@ export default function Contact() {
                       type="text"
                       className="text-white"
                       placeholder="Enter Last Name"
+                      name="lname"
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
@@ -95,22 +153,38 @@ export default function Contact() {
                       type="text"
                       className="text-white"
                       placeholder="Enter Email"
+                      name="email"
+                      onChange={handleChange}
                     />
                   </div>
                   <div>
                     <input
-                      type="text"
+                      type="number"
                       className="text-white"
                       placeholder="Enter Phone No"
+                      name="phone"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div>
-                  <textarea placeholder="Message"></textarea>
+                  <textarea
+                    placeholder="Message"
+                    name="message"
+                    onChange={handleChange}
+                  ></textarea>
                 </div>
                 <div className="mt-3">
-                  <button className="btn_One px-5 py-4 uppercase font-semibold text-md">
-                    <span>Send Message</span>
+                  <button
+                    className="btn_One px-5 py-4 uppercase font-semibold text-md disabled:cursor-not-allowed disabled:opacity-60"
+                    onClick={handleSave}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <span>Sending...</span>
+                    ) : (
+                      <span>Send Message</span>
+                    )}
                   </button>
                 </div>
               </div>

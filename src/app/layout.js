@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import Preloader from "./_components/Preloader";
 import "./globals.css";
 import "@/lib/fontawesome";
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Preloader />
         {children}
+        <Toaster position="top-right" richColors/>
       </body>
     </html>
   );

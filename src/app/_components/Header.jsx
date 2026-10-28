@@ -36,7 +36,7 @@ export default function Header() {
   };
   return (
     <header
-      className={`header z-100 transition-all duration-300 ${headersticky ? (dark === "dark" ? "bg-[#1E1A1A] sticky top-0 shadow-md" : "bg-white sticky top-0 shadow-md") : "relative bg-transparent"}`}
+      className={`header z-100 transition-all duration-300 ${headersticky ? (dark === "dark" ? "bg-[#1E1A1A] sticky top-0 shadow-md translate-y-0" : "bg-white sticky top-0 shadow-md translate-y-0") : "relative bg-transparent transition-all duration-300 ease-in-out"}`}
     >
       <div className="container mx-auto">
         <div className={`flex items-center justify-between min-h-[87px] `}>
