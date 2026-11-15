@@ -520,12 +520,12 @@ textarea:focus {
   outline: 0;
 }
 
-.contact .contactFormMain input:placeholder,
-textarea:placeholder {
+.contact .contactFormMain input::placeholder,
+textarea::placeholder {
   color: #fff;
 }
 
-.contact .contactFormMain textarea:placeholder {
+.contact .contactFormMain textarea::placeholder {
   color: #fff;
 }
 

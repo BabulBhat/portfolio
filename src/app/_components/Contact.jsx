@@ -27,29 +27,49 @@ export default function Contact() {
     });
   };
 
+  const validateInput = (value) => {
+    const { email, phone } = value;
+    const inputemail = email.trim();
+    const inputphone = phone.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegx = /^[6-9]\d{9}$/;
+
+    if (emailRegex.test(inputemail) && phoneRegx.test(inputphone)) {
+      return "";
+    }
+    return "Enter a valid email or 10-digit mobile number";
+  };
+
   const handleSave = async () => {
     setLoading(true);
-    const { fname, lname, email, phone, message } = alldata;
-    if (fname === "" || email === "") {
-      toast.error("Please * mark must be filled...");
+    const validateError = validateInput(alldata);
+    if (validateError) {
+      toast.error(validateError);
     } else {
-      const response = await fetch(`http://localhost:3000/api/frontend`, {
-        method: "POST",
-        body: JSON.stringify(alldata),
-      });
-      const result = await response.json();
-      if (result.success) {
-        toast.success("Data Save Successfully");
-        setLoading(false);
-        setalldata({
-          fname: "",
-          lname: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
+      // return false;
+
+      const { fname, lname, email, phone, message } = alldata;
+      if (fname === "" || email === "") {
+        toast.error("Please * mark must be filled...");
       } else {
-        toast.error("Something went wrong");
+        const response = await fetch(`http://localhost:3000/api/frontend`, {
+          method: "POST",
+          body: JSON.stringify(alldata),
+        });
+        const result = await response.json();
+        if (result.success) {
+          toast.success("Data Save Successfully");
+          setLoading(false);
+          setalldata({
+            fname: "",
+            lname: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+        } else {
+          toast.error("Something went wrong");
+        }
       }
     }
   };
@@ -137,6 +157,7 @@ export default function Contact() {
                       placeholder="Enter First Name"
                       name="fname"
                       onChange={handleChange}
+                      value={alldata.fname}
                     />
                   </div>
                   <div>
@@ -146,6 +167,7 @@ export default function Contact() {
                       placeholder="Enter Last Name"
                       name="lname"
                       onChange={handleChange}
+                      value={alldata.lname}
                     />
                   </div>
                   <div>
@@ -155,6 +177,7 @@ export default function Contact() {
                       placeholder="Enter Email"
                       name="email"
                       onChange={handleChange}
+                      value={alldata.email}
                     />
                   </div>
                   <div>
@@ -164,6 +187,7 @@ export default function Contact() {
                       placeholder="Enter Phone No"
                       name="phone"
                       onChange={handleChange}
+                      value={alldata.phone}
                     />
                   </div>
                 </div>
@@ -172,19 +196,20 @@ export default function Contact() {
                     placeholder="Message"
                     name="message"
                     onChange={handleChange}
+                    value={alldata.message}
                   ></textarea>
                 </div>
                 <div className="mt-3">
                   <button
                     className="btn_One px-5 py-4 uppercase font-semibold text-md disabled:cursor-not-allowed disabled:opacity-60"
                     onClick={handleSave}
-                    disabled={loading}
+                    // disabled={loading}
                   >
-                    {loading ? (
+                    {/* {loading ? (
                       <span>Sending...</span>
-                    ) : (
-                      <span>Send Message</span>
-                    )}
+                    ) : ( */}
+                    <span>Send Message</span>
+                    {/* )} */}
                   </button>
                 </div>
               </div>
