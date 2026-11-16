@@ -1,1 +1,2 @@
-export let connectToMongo = process.env.DBURL;
+// require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
+export let connectToMongo = "mongodb+srv://bhatbabulnaity_db_user:KLOpMMEqTBXy3Z4S@cluster0.tkcnoyp.mongodb.net/portfolio?retryWrites=true&w=majority";
