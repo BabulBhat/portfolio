@@ -22,6 +22,11 @@ body.dark {
 .container {
   padding: 0 15px;
 }
+
+button{
+  cursor: pointer;
+}
+
 .btn_One {
   background: #ff0707;
   border-radius: 10px;
@@ -581,7 +586,7 @@ textarea {
   transform-origin: center;
 }
 
-.footer ul li a:hover::after {
+/* .footer ul li a:hover::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -590,7 +595,7 @@ textarea {
   height: 100%;
   transition: all 0.3s linear;
   transform: scaleX(1);
-}
+} */
 
 body.dark .footer{
   background: #1E1A1A;

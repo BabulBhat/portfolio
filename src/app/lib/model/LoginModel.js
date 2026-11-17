@@ -2,14 +2,22 @@ import mongoose from "mongoose";
 
 const LoginModel = mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true,
+      trim: true
+    },
     username: {
       type: String,
       required: true,
+      unique: true,
+      trim: true
     },
     password: {
       type: String,
       required: true,
     },
+
   },
   {
     timestamp: true,
@@ -17,4 +25,4 @@ const LoginModel = mongoose.Schema(
 );
 
 export const LoginSchema =
-  mongoose.models.adminlogin || mongoose.model("adminlogin", LoginModel);
+  mongoose.models.loginadmins || mongoose.model("loginadmins", LoginModel);

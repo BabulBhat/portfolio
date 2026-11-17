@@ -10,6 +10,8 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { getContact } from "../redux/frontend/contactSlice";
 export default function Contact() {
   const [alldata, setalldata] = useState({
     fname: "",
@@ -19,6 +21,8 @@ export default function Contact() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setalldata({
@@ -46,18 +50,12 @@ export default function Contact() {
     if (validateError) {
       toast.error(validateError);
     } else {
-      // return false;
-
       const { fname, lname, email, phone, message } = alldata;
       if (fname === "" || email === "") {
         toast.error("Please * mark must be filled...");
       } else {
-        const response = await fetch(`http://localhost:3000/api/frontend`, {
-          method: "POST",
-          body: JSON.stringify(alldata),
-        });
-        const result = await response.json();
-        if (result.success) {
+        const userdata = await dispatch(getContact(alldata)) 
+        if (userdata.type = "contact/fulfilled") {
           toast.success("Data Save Successfully");
           setLoading(false);
           setalldata({

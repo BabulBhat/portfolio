@@ -56,9 +56,12 @@ export default function Login() {
             value={login.password}
           />
         </div>
+        <div className="mt-3 text-sm">
+          <span>Create An Account? <button className="text-green-600 font-semibold ">Sign Up</button></span>
+        </div>
         <div className="mt-4">
           <button
-            className="bg-green-500 px-4 py-2 rounded text-sm font-bold border border-green-500 text-gray-800 cursor-pointer hover:bg-green-600 hover:text-black"
+            className="bg-green-500 px-4 py-2 rounded text-sm font-bold border border-green-500 text-gray-800 hover:bg-green-600 hover:text-black"
             onClick={handleSave}
           >
             Login
