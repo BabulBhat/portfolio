@@ -1,29 +1,42 @@
 "use client";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginauth } from "../redux/admin/login/loginSlice";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
-  const [login, setlogin] = useState({
+  const [data, setdata] = useState({
     username: "",
     password: "",
+    login: true
   });
+  const dispatch = useDispatch();
+  const router = useRouter();
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setlogin({
-      ...login,
+    setdata({
+      ...data,
       [name]: value,
     });
   };
-  const handleSave = async() => {
-    const response = await fetch(`http://localhost:3000/api/admin/login`,{
-      method : "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(login)
-    });
-    const result = await response.json();
-    
-    console.log(result);
+  const handleSave = async () => {
+    const { username, password } = data;
+    if (username == "" && password == "") {
+      toast.error("All Filed Required");
+    }
+    else {
+      const user = await dispatch(loginauth(data));
+      if (user.payload.success !== false) {
+        localStorage.setItem('token', user.payload.token)
+        toast.success('Login Successfully');
+        router.push('/admin/dashboard');
+      }
+      else {
+        toast.error("Login Failed");
+      }
+    }
+
   };
   return (
     <div className="login flex items-center justify-center h-screen">
@@ -40,7 +53,7 @@ export default function Login() {
             placeholder="Username"
             name="username"
             onChange={handleChange}
-            value={login.username}
+            value={data.username}
           />
         </div>
         <div className="">
@@ -53,7 +66,7 @@ export default function Login() {
             placeholder="Password"
             name="password"
             onChange={handleChange}
-            value={login.password}
+            value={data.password}
           />
         </div>
         <div className="mt-3 text-sm">

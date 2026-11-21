@@ -10,7 +10,6 @@ http:
     type: json
     data: |-
       {
-        "name" : "babul",
         "username" : "admin",
         "password" : "admin",
         "login" : true

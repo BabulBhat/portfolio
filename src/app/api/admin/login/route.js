@@ -19,17 +19,20 @@ export async function POST(req) {
     });
 
     if (!credentials) {
+      success = false;
       return NextResponse.json(
-        { message: "Invalid username or password" },
+        { message: "Invalid Username or Password", success },
         { status: 401 }
       );
     }
 
     const isMatch = await bcrypt.compare(payload.password, credentials.password);
     if (!isMatch) {
+      success = false;
       return NextResponse.json(
-        { message: "Invalid username or password" },
+        { message: "Invalid Username or Password", success },
         { status: 401 }
+        
       );
     }
 
@@ -44,6 +47,14 @@ export async function POST(req) {
   }
   else {
     // When Register
+    const exsitingUser = await LoginSchema.findOne({
+      username: payload.username
+    })
+    if (exsitingUser) {
+      success = false;
+      return NextResponse.json({ error: "Username Already Used.", success }, { status: 409 })
+    }
+
     const hashedPassword = await bcrypt.hash(payload.password, 12)
     const reg = new LoginSchema({
       name: payload.name,
@@ -52,6 +63,7 @@ export async function POST(req) {
     });
     const result = await reg.save();
     let username = result.username;
+
     token = await new SignJWT({ username }).setProtectedHeader({ alg: 'HS256' }).setExpirationTime('2d').sign(SECRET);
     if (token) {
       success = true
